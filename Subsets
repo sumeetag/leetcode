@@ -1,0 +1,20 @@
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        #x = nums[0:1] + nums[2:3]
+        #print "sad",x
+        s = []
+        find(nums, 0, [], s)
+        
+        return s
+
+def find (nums, index, x, s):
+    s.append(x)
+    
+    for i in xrange(index, len(nums)):
+        find(nums, i+1, x + [nums[i]], s)
+        
+        
