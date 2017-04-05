@@ -1,0 +1,15 @@
+class Solution(object):
+    def longestSubstring(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: int
+        """
+        return find(s,k)
+
+def find(s,k):
+    for i in set(s):
+        if s.count(i) < k:
+            return max(find(j,k) for j in s.split(i))
+    
+    return len(s)
